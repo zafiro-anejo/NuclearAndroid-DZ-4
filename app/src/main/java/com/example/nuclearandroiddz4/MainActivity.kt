@@ -2,6 +2,7 @@ package com.example.nuclearandroiddz4
 
 import android.os.Build
 import android.os.Bundle
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -22,7 +23,11 @@ class MainActivity : AppCompatActivity() {
             requestPermissions(arrayOf(android.Manifest.permission.POST_NOTIFICATIONS), 1)
         }
 
-        val scheduleWorker = ScheduleWorkersChain(applicationContext)
-        scheduleWorker.workerChain()
+        val startWorkersChainButton: Button = findViewById(R.id.start_workers_chain_button)
+
+        startWorkersChainButton.setOnClickListener {
+            val scheduleWorker = ScheduleWorkersChain(applicationContext)
+            scheduleWorker.workerChain()
+        }
     }
 }
